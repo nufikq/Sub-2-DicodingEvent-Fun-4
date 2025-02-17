@@ -3,16 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/navigation_home">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/navigation_home"
         android:name="com.example.sub2dicodingeventfun4.ui.HomeFragment"
-        android:label="fragment_home"
+        android:label="Dicoding Event"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/upcomingFragment"
+        android:id="@+id/navigation_upcoming"
         android:name="com.example.sub2dicodingeventfun4.ui.UpcomingFragment"
-        android:label="fragment_upcoming"
+        android:label="Upcoming Event"
         tools:layout="@layout/fragment_upcoming" />
+    <fragment
+        android:id="@+id/navigation_finished"
+        android:name="com.example.sub2dicodingeventfun4.ui.FinishedFragment"
+        android:label="Finished Event"
+        tools:layout="@layout/fragment_finished" />
 </navigation>

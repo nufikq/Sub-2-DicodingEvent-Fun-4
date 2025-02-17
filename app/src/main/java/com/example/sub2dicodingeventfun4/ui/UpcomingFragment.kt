@@ -13,7 +13,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sub2dicodingeventfun4.Event
 import com.example.sub2dicodingeventfun4.EventAdapter
-import com.example.sub2dicodingeventfun4.R
 import com.example.sub2dicodingeventfun4.databinding.FragmentUpcomingBinding
 
 class UpcomingFragment : Fragment() {
@@ -48,6 +47,13 @@ class UpcomingFragment : Fragment() {
     }
 
     private fun observeViewModel() {
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
+            showLoading(isLoading)
+            if (isLoading) {
+                showNoEvent(false)
+            }
+        })
+
         viewModel.events.observe(viewLifecycleOwner, Observer { events ->
             if (events.isEmpty()) {
                 showNoEvent(true)
@@ -55,10 +61,6 @@ class UpcomingFragment : Fragment() {
                 showNoEvent(false)
                 setEventData(events)
             }
-        })
-
-        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
-            showLoading(isLoading)
         })
 
         viewModel.errorMessage.observe(viewLifecycleOwner, Observer { message ->

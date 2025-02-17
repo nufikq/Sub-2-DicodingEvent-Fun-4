@@ -27,13 +27,13 @@ class EventAdapter : ListAdapter<Event, EventAdapter.EventViewHolder>(DIFF_CALLB
             Glide.with(itemView.context)
                 .load(event.mediaCover)
                 .into(binding.eventPoster)
-            /*itemView.setOnClickListener {
+            itemView.setOnClickListener {
                 event.id.let {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.EXTRA_EVENT, it)
                     itemView.context.startActivity(intent)
                 }
-            }*/
+            }
         }
     }
 
