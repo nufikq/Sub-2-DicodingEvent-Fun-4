@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home,
                 R.id.navigation_upcoming,
                 R.id.navigation_finished,
-                R.id.item_3,
-                R.id.item_4
+                R.id.navigation_favorite,
+                R.id.navigation_settings
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

@@ -26,4 +26,5 @@
     <string name="event_registrant">Banyaknya pendaftar: %1$d</string>
     <string name="event_quota">Sisa kuota: %1$d</string>
     <string name="dicoding_detail_event">Dicoding Detail Event</string>
+    <string name="favorite">Favorite</string>
 </resources>

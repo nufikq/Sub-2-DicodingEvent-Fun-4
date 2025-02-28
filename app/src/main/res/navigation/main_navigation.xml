@@ -20,4 +20,14 @@
         android:name="com.example.sub2dicodingeventfun4.ui.FinishedFragment"
         android:label="Finished Event"
         tools:layout="@layout/fragment_finished" />
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.example.sub2dicodingeventfun4.ui.FavoriteFragment"
+        android:label="Favorite Event"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.sub2dicodingeventfun4.ui.SettingsFragment"
+        android:label="Settings Dicoding Event App"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

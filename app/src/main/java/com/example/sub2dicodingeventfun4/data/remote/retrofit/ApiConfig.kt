@@ -1,4 +1,4 @@
-package com.example.sub2dicodingeventfun4
+package com.example.sub2dicodingeventfun4.data.remote.retrofit
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

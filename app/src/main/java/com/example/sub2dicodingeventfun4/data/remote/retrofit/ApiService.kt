@@ -1,5 +1,7 @@
-package com.example.sub2dicodingeventfun4
+package com.example.sub2dicodingeventfun4.data.remote.retrofit
 
+import com.example.sub2dicodingeventfun4.data.remote.response.EventDetailResponse
+import com.example.sub2dicodingeventfun4.data.remote.response.EventResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

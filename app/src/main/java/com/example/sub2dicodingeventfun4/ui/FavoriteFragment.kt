@@ -1,5 +1,6 @@
 package com.example.sub2dicodingeventfun4.ui
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,19 +14,19 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sub2dicodingeventfun4.data.remote.response.Event
 import com.example.sub2dicodingeventfun4.EventAdapter
-import com.example.sub2dicodingeventfun4.databinding.FragmentUpcomingBinding
+import com.example.sub2dicodingeventfun4.databinding.FragmentFavoriteBinding
 
-class UpcomingFragment : Fragment() {
+class FavoriteFragment : Fragment() {
 
-    private var _binding: FragmentUpcomingBinding? = null
-    private val viewModel: UpcomingViewModel by viewModels()
+    private var _binding: FragmentFavoriteBinding? = null
+    private val viewModel: FavoriteViewModel by viewModels()
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentUpcomingBinding.inflate(inflater, container, false)
+        _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
     }
@@ -70,10 +71,10 @@ class UpcomingFragment : Fragment() {
         })
     }
 
-    private fun setEventData(upcomingEvent: List<Event>) {
+    private fun setEventData(favoriteEvent: List<Event>) {
         val adapter = EventAdapter()
         binding.rvEvent.adapter = adapter
-        adapter.submitList(upcomingEvent)
+        adapter.submitList(favoriteEvent)
     }
 
     private fun showLoading(isLoading: Boolean) {

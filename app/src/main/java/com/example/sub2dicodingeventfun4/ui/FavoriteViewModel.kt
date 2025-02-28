@@ -11,7 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FinishedViewModel: ViewModel() {
+class FavoriteViewModel : ViewModel() {
 
     // Begin
     private val _events = MutableLiveData<List<Event>>()
@@ -27,7 +27,7 @@ class FinishedViewModel: ViewModel() {
         _isLoading.value = true
         _errorMessage.value = null
 
-        val client = ApiConfig.getApiService().getEvents(0)
+        val client = ApiConfig.getApiService().getEvents(1)
         client.enqueue(object : Callback<EventResponse> {
             override fun onResponse(call: Call<EventResponse>, response: Response<EventResponse>) {
                 _isLoading.value = false

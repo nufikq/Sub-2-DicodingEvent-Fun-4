@@ -10,6 +10,9 @@ import androidx.core.text.HtmlCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.example.sub2dicodingeventfun4.data.remote.response.Event
+import com.example.sub2dicodingeventfun4.data.remote.response.EventDetailResponse
+import com.example.sub2dicodingeventfun4.data.remote.retrofit.ApiConfig
 import com.example.sub2dicodingeventfun4.databinding.ActivityDetailBinding
 import retrofit2.Call
 import retrofit2.Callback
