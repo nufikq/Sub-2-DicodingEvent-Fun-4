@@ -3,16 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/navigation_home">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/navigation_home"
         android:name="com.example.sub2dicodingeventfun4.ui.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/text_label_0"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/upcomingFragment"
+        android:id="@+id/navigation_upcoming"
         android:name="com.example.sub2dicodingeventfun4.ui.UpcomingFragment"
-        android:label="fragment_upcoming"
+        android:label="@string/text_label_1"
         tools:layout="@layout/fragment_upcoming" />
+    <fragment
+        android:id="@+id/navigation_finished"
+        android:name="com.example.sub2dicodingeventfun4.ui.FinishedFragment"
+        android:label="@string/text_label_2"
+        tools:layout="@layout/fragment_finished" />
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.example.sub2dicodingeventfun4.ui.FavoriteFragment"
+        android:label="@string/text_label_3"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.sub2dicodingeventfun4.ui.SettingsFragment"
+        android:label="@string/text_label_4"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

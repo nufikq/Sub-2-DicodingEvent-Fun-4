@@ -47,6 +47,13 @@ class UpcomingFragment : Fragment() {
     }
 
     private fun observeViewModel() {
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
+            showLoading(isLoading)
+            if (isLoading) {
+                showNoEvent(false)
+            }
+        })
+
         viewModel.events.observe(viewLifecycleOwner, Observer { events ->
             if (events.isEmpty()) {
                 showNoEvent(true)
@@ -54,10 +61,6 @@ class UpcomingFragment : Fragment() {
                 showNoEvent(false)
                 setEventData(events)
             }
-        })
-
-        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
-            showLoading(isLoading)
         })
 
         viewModel.errorMessage.observe(viewLifecycleOwner, Observer { message ->
