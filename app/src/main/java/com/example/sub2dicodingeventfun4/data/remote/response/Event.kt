@@ -1,4 +1,4 @@
-package com.example.sub2dicodingeventfun4
+package com.example.sub2dicodingeventfun4.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 

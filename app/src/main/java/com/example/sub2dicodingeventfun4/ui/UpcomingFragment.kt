@@ -11,9 +11,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.sub2dicodingeventfun4.Event
+import com.example.sub2dicodingeventfun4.data.remote.response.Event
 import com.example.sub2dicodingeventfun4.EventAdapter
-import com.example.sub2dicodingeventfun4.R
 import com.example.sub2dicodingeventfun4.databinding.FragmentUpcomingBinding
 
 class UpcomingFragment : Fragment() {
