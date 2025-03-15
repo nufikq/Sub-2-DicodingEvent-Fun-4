@@ -11,4 +11,20 @@
 
     <string name="event_poster">Event\'s poster</string>
     <string name="no_data">No Data</string>
+
+    <string name="media_cover">Gambar</string>
+    <string name="name">Nama acara</string>
+    <string name="owner_name">Penyelenggara acara</string>
+    <string name="begin_time">Waktu acara</string>
+    <string name="quota">Sisa kuota</string>
+    <string name="registrant">Jumlah registrant</string>
+    <string name="description">Deskripsi acara</string>
+    <string name="link">Register</string>
+
+    <string name="event_owner_name">Penyelenggara: %1$s</string>
+    <string name="event_begin_time">Acara dimulai: %1$s</string>
+    <string name="event_registrant">Banyaknya pendaftar: %1$d</string>
+    <string name="event_quota">Sisa kuota: %1$d</string>
+    <string name="dicoding_detail_event">Dicoding Detail Event</string>
+    <string name="favorite">Favorite</string>
 </resources>
