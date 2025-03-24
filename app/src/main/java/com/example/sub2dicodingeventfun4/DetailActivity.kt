@@ -4,11 +4,14 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.sub2dicodingeventfun4.data.remote.response.Event
 import com.example.sub2dicodingeventfun4.data.remote.response.EventDetailResponse
@@ -20,6 +23,7 @@ import retrofit2.Response
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
+    private val viewModel: DetailViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -32,29 +36,25 @@ class DetailActivity : AppCompatActivity() {
         }
         val eventId = intent.getIntExtra(EXTRA_EVENT, -1)
         if (eventId != -1) {
-            showDetailEvent(eventId)
+            viewModel.fetchEventDetail(eventId)
         }
+        observeViewModel()
+        setupFavoriteButton()
     }
-    private fun showDetailEvent(eventId: Int) {
-        showLoading(true)
-        val client = ApiConfig.getApiService().getDetailEvent(eventId)
-        client.enqueue(object : Callback<EventDetailResponse> {
-            override fun onResponse(
-                call: Call<EventDetailResponse>,
-                response: Response<EventDetailResponse>
-            ) {
-                showLoading(false)
-                if (response.isSuccessful) {
-                    val event = response.body()?.event
-                    if (event != null) {
-                        updateUI(event)
-                    }
-                }
-            }
+    private fun observeViewModel() {
+        viewModel.isLoading.observe(this, Observer { isLoading ->
+            showLoading(isLoading)
+        })
 
-            override fun onFailure(call: Call<EventDetailResponse>, t: Throwable) {
-                // Handle failure
-                showLoading(false)
+        viewModel.event.observe(this, Observer { event ->
+            if (event != null) {
+                updateUI(event)
+            }
+        })
+
+        viewModel.errorMessage.observe(this, Observer { message ->
+            if (!message.isNullOrEmpty()) {
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -81,10 +81,21 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        if (isLoading) {
-            binding.progressBar.visibility = View.VISIBLE
-        } else {
-            binding.progressBar.visibility = View.GONE
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun setupFavoriteButton() {
+        viewModel.isFavorite.observe(this) { isFavorite ->
+            val iconResource = if (isFavorite) {
+                R.drawable.baseline_favorite_24
+            } else {
+                R.drawable.baseline_favorite_border_24
+            }
+            binding.favoriteButton.setIconResource(iconResource)
+        }
+
+        binding.favoriteButton.setOnClickListener {
+            viewModel.toggleFavorite()
         }
     }
 
