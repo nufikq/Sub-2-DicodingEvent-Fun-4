@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.sub2dicodingeventfun4.data.local.entity.EventEntity
 
-@Database(entities = [EventEntity::class], version = 2, exportSchema = false)
+@Database(entities = [EventEntity::class], version = 1, exportSchema = false)
 abstract class EventDatabase : RoomDatabase() {
     abstract fun favoriteDao(): EventDao
 
@@ -21,7 +21,6 @@ abstract class EventDatabase : RoomDatabase() {
                     EventDatabase::class.java,
                     "event_database"
                 )
-                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 instance
